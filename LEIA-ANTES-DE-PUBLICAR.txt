@@ -1,0 +1,7 @@
+SITE GENTIL CRED — EDUCAÇÃO FINANCEIRA
+
+Antes de publicar:
+1. Substitua SUBSTITUA-PELO-EMAIL-OFICIAL pelo e-mail correto.
+2. Substitua 55SEUNUMERO pelo WhatsApp com DDD e código do Brasil.
+3. Envie todos os arquivos para a raiz do repositório gentilcred.github.io.
+4. No GitHub Pages, use a branch main e a pasta /(root).

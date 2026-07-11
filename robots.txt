@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gentilcred.github.io/sitemap.xml

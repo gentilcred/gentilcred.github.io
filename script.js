@@ -1,60 +1,32 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector(".site-header");
-  const menuBtn = document.querySelector(".menu-btn");
-  const nav = document.querySelector(".navlinks");
-  const reveals = document.querySelectorAll(".reveal");
-
-  window.addEventListener("scroll", () => {
-    header?.classList.toggle("scrolled", window.scrollY > 20);
-  });
-
-  menuBtn?.addEventListener("click", () => {
-    nav?.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", nav?.classList.contains("open") ? "true" : "false");
-  });
-
-  nav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.14});
-  reveals.forEach(el => observer.observe(el));
-
-  document.querySelectorAll(".faq-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const item = btn.closest(".faq-item");
-      item.classList.toggle("open");
-      btn.setAttribute("aria-expanded", item.classList.contains("open") ? "true" : "false");
-    });
-  });
-
-  const calc = document.querySelector("#budget-form");
-  calc?.addEventListener("submit", e => {
+document.addEventListener("DOMContentLoaded",()=>{
+  const header=document.querySelector(".site-header"), progress=document.querySelector(".top-progress");
+  const menuBtn=document.querySelector(".menu-btn"), nav=document.querySelector(".navlinks");
+  const updateScroll=()=>{header?.classList.toggle("scrolled",scrollY>20);const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+"%"};
+  addEventListener("scroll",updateScroll);updateScroll();
+  menuBtn?.addEventListener("click",()=>{nav?.classList.toggle("open");menuBtn.setAttribute("aria-expanded",nav?.classList.contains("open")?"true":"false")});
+  nav?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target)}}),{threshold:.13});
+  document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+  const chart=document.querySelector(".chart");
+  if(chart){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){chart.querySelectorAll(".bar").forEach(b=>b.style.height=b.dataset.h);}}),{threshold:.4}).observe(chart)}
+  document.querySelectorAll(".faq-btn").forEach(btn=>btn.addEventListener("click",()=>{const item=btn.closest(".faq-item");item.classList.toggle("open");btn.setAttribute("aria-expanded",item.classList.contains("open")?"true":"false")}));
+  const calc=document.querySelector("#budget-form");
+  calc?.addEventListener("submit",e=>{
     e.preventDefault();
-    const income = Number(document.querySelector("#income").value || 0);
-    const fixed = Number(document.querySelector("#fixed").value || 0);
-    const variable = Number(document.querySelector("#variable").value || 0);
-    const debts = Number(document.querySelector("#debts").value || 0);
-    const total = fixed + variable + debts;
-    const balance = income - total;
-    const commitment = income > 0 ? (total / income) * 100 : 0;
-    const result = document.querySelector("#budget-result");
-
-    result.classList.remove("good","bad");
-    result.classList.add(balance >= 0 ? "good" : "bad");
-
-    const money = new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
-    result.innerHTML = `
-      <div><strong>Saldo estimado: ${money.format(balance)}</strong></div>
-      <p>Despesas comprometem ${commitment.toFixed(1)}% da renda.</p>
-      <p>${balance >= 0
-        ? "Você está com saldo positivo. Tente separar uma parte para metas e imprevistos."
-        : "As despesas ultrapassam a renda. Revise gastos e priorize dívidas mais caras."}</p>`;
+    const renda=+document.querySelector("#renda").value||0, fixas=+document.querySelector("#fixas").value||0, variaveis=+document.querySelector("#variaveis").value||0, dividas=+document.querySelector("#dividas").value||0;
+    const total=fixas+variaveis+dividas, saldo=renda-total, pct=renda?total/renda*100:0;
+    const fmt=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+    let nivel="Saudável", cls="good", msg="Há espaço para metas e reserva.";
+    if(pct>=80&&pct<=100){nivel="Atenção";cls="warn";msg="Revise gastos variáveis e aumente sua margem de segurança."}
+    if(pct>100){nivel="Crítico";cls="bad";msg="As despesas ultrapassam a renda. Priorize cortes e renegociação."}
+    document.querySelector("#saldo").textContent=fmt.format(saldo);
+    const st=document.querySelector("#status");st.textContent=nivel;st.className="status "+cls;
+    document.querySelector("#comp").textContent=pct.toFixed(1)+"%";
+    document.querySelector("#mensagem").textContent=msg;
+    document.querySelector("#donut").style.background=`conic-gradient(var(--teal) ${Math.min(pct,100)*3.6}deg,#e5eeeb 0deg)`;
+    document.querySelector("#l-fixas").textContent=fmt.format(fixas);
+    document.querySelector("#l-var").textContent=fmt.format(variaveis);
+    document.querySelector("#l-div").textContent=fmt.format(dividas);
   });
 });

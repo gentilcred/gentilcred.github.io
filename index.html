@@ -1,138 +1,458 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gentil Cred</title>
-<meta name="description" content="Página institucional da Gentil Cred.">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gentil Cred | Educação Financeira</title>
+<meta name="description" content="Educação financeira simples e prática para organizar o orçamento, entender o crédito e tomar decisões mais conscientes.">
 <style>
 :root{
-  --verde:#123c36;
-  --verde2:#1f6b5d;
-  --claro:#f4f8f7;
-  --texto:#1f2937;
-  --borda:#d9e4e1;
+  --navy:#0e2a36;
+  --blue:#1e5f74;
+  --teal:#2f8f83;
+  --gold:#e7b84b;
+  --cream:#f8f6ef;
+  --white:#ffffff;
+  --text:#24323a;
+  --muted:#66757d;
+  --border:#dce5e3;
+  --shadow:0 18px 45px rgba(14,42,54,.10);
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  color:var(--texto);
-  background:#fff;
+  color:var(--text);
+  background:#fbfcfb;
   line-height:1.65;
 }
-header{
-  background:var(--verde);
-  color:#fff;
-  padding:18px 24px;
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.topbar{
+  background:var(--navy);
+  color:#dce8eb;
+  padding:8px 0;
+  font-size:.92rem;
 }
-nav{
-  max-width:980px;
-  margin:auto;
+.topbar .container{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+.nav{
+  min-height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
+  gap:24px;
 }
-nav strong{font-size:1.2rem}
-nav a{
-  color:#fff;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
   text-decoration:none;
-  margin-left:14px;
 }
-main{
-  max-width:900px;
-  margin:40px auto;
-  padding:0 22px 50px;
+.logo{
+  width:46px;
+  height:46px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  box-shadow:var(--shadow);
 }
-.hero{
-  background:var(--claro);
-  border:1px solid var(--borda);
-  border-radius:16px;
-  padding:42px 28px;
-  margin-bottom:32px;
-}
-h1,h2,h3{color:var(--verde)}
-h1{line-height:1.2}
-.card{
-  border:1px solid var(--borda);
+.brand strong{font-size:1.25rem;color:var(--navy)}
+.navlinks{display:flex;align-items:center;gap:22px}
+.navlinks a{text-decoration:none;font-weight:700;color:#40515a}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 18px;
   border-radius:12px;
-  padding:22px;
-  margin:18px 0;
-}
-a{color:var(--verde2)}
-.botao{
-  display:inline-block;
-  background:var(--verde2);
-  color:#fff;
   text-decoration:none;
-  padding:12px 18px;
-  border-radius:9px;
-  font-weight:bold;
+  font-weight:800;
+  border:1px solid transparent;
+  transition:.2s;
 }
-footer{
-  border-top:1px solid var(--borda);
-  background:var(--claro);
-  padding:24px;
-  text-align:center;
-  font-size:.92rem;
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--teal);transform:translateY(-1px)}
+.btn-light{background:#fff;border-color:var(--border);color:var(--navy)}
+.hero{
+  padding:88px 0 70px;
+  background:
+    radial-gradient(circle at 88% 15%,rgba(231,184,75,.22),transparent 26%),
+    linear-gradient(180deg,#f6fbfa 0%,#fbfcfb 100%);
 }
-.notice{
-  background:#fff8e1;
-  border-left:4px solid #d9a400;
-  padding:14px 16px;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:54px;
+  align-items:center;
+}
+.eyebrow{
+  display:inline-block;
+  background:#e6f2f0;
+  color:var(--teal);
+  border:1px solid #d2e7e3;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.9rem;
+}
+h1{
+  font-size:clamp(2.6rem,5vw,4.6rem);
+  line-height:1.02;
+  letter-spacing:-.04em;
+  color:var(--navy);
   margin:20px 0;
 }
-code{
-  background:#eef3f2;
-  padding:2px 6px;
-  border-radius:4px;
+.hero p{font-size:1.14rem;color:var(--muted);max-width:650px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero-note{
+  margin-top:24px;
+  color:#4e626b;
+  font-size:.95rem;
 }
-ul,ol{padding-left:22px}
+.finance-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+.finance-card h3{margin:0 0 18px;color:var(--navy);font-size:1.4rem}
+.finance-row{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+}
+.finance-row:last-child{border-bottom:0}
+.finance-row span{color:var(--muted)}
+.finance-row strong{color:var(--blue)}
+section{padding:74px 0}
+.section-head{max-width:740px;margin-bottom:34px}
+.section-head h2{
+  font-size:clamp(2rem,3.4vw,3rem);
+  line-height:1.12;
+  margin:0 0 12px;
+  color:var(--navy);
+}
+.section-head p{font-size:1.05rem;color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 10px 30px rgba(14,42,54,.05);
+}
+.card h3{color:var(--navy);margin:16px 0 8px}
+.card p{color:var(--muted);margin:0}
+.icon{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#e8f3f1;
+  color:var(--teal);
+  font-weight:900;
+}
+.lesson-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+}
+.lesson{
+  background:var(--cream);
+  border:1px solid #ebe3cb;
+  border-radius:20px;
+  padding:28px;
+}
+.lesson small{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.lesson h3{color:var(--navy);margin:8px 0 10px;font-size:1.4rem}
+.lesson ul{padding-left:20px;color:#52636b}
+.steps{counter-reset:step}
+.step{
+  position:relative;
+  padding-left:72px;
+  min-height:58px;
+  margin-bottom:28px;
+}
+.step:before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute;
+  left:0;
+  top:0;
+  width:50px;
+  height:50px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:var(--blue);
+  color:#fff;
+  font-weight:900;
+}
+.band{
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  border-radius:28px;
+  padding:44px;
+}
+.band h2{margin:0 0 12px;font-size:2rem}
+.band p{color:#d9e7ea;max-width:790px}
+.legal-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.legal-links a{
+  padding:11px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);
+}
+footer{
+  background:#081f28;
+  color:#d3e0e4;
+  margin-top:72px;
+  padding:44px 0 26px;
+}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer h4{color:#fff;margin-top:0}
+footer a{display:block;text-decoration:none;color:#d3e0e4;margin:8px 0}
+.small{font-size:.9rem;color:#9fb3ba}
+.legal-page{
+  width:min(900px,calc(100% - 40px));
+  margin:48px auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:40px;
+  box-shadow:var(--shadow);
+}
+.legal-page h1{font-size:2.4rem}
+.legal-page h2{color:var(--navy);margin-top:32px}
+.notice{
+  background:#fff8df;
+  border:1px solid #ead899;
+  color:#6b5a20;
+  padding:16px;
+  border-radius:12px;
+  margin:24px 0;
+}
+@media(max-width:900px){
+  .hero-grid,.grid-3,.lesson-grid,.footer-grid{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .hero{padding-top:56px}
+}
 </style>
-
 </head>
 <body>
 
+<div class="topbar">
+  <div class="container">
+    <span>Educação financeira simples e prática</span>
+    <span>Conteúdo informativo para decisões mais conscientes</span>
+  </div>
+</div>
 <header>
-  <nav>
-    <strong>Gentil Cred</strong>
-    <div>
-      <a href="index.html">Início</a>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <div class="logo">GC</div>
+      <strong>Gentil Cred</strong>
+    </a>
+    <nav class="navlinks">
+      <a href="index.html#aprender">Aprender</a>
+      <a href="index.html#conteudos">Conteúdos</a>
+      <a href="index.html#metodo">Como começar</a>
       <a href="politica-de-privacidade.html">Privacidade</a>
-      <a href="exclusao-de-dados.html">Exclusão de dados</a>
-      <a href="termos-de-servico.html">Termos</a>
-    </div>
-  </nav>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener">Falar com a equipe</a>
+  </div>
 </header>
 
 <main>
-  <section class="hero">
-    <h1>Gentil Cred</h1>
-    <p>Atendimento, comunicação e gestão de serviços financeiros de forma responsável e transparente.</p>
-    <a class="botao" href="politica-de-privacidade.html">Consultar Política de Privacidade</a>
-  </section>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Educação financeira para a vida real</span>
+      <h1>Entenda seu dinheiro antes de tomar qualquer decisão.</h1>
+      <p>A Gentil Cred transforma assuntos financeiros em explicações simples. Aprenda a organizar o orçamento, controlar dívidas, usar o crédito com responsabilidade e planejar o futuro.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#aprender">Começar a aprender</a>
+        <a class="btn btn-light" href="#conteudos">Ver conteúdos</a>
+      </div>
+      <p class="hero-note">Informação clara, sem promessas fáceis e sem linguagem complicada.</p>
+    </div>
 
-  <section class="card">
-    <h2>Informações legais</h2>
-    <p>Consulte os documentos abaixo para entender como os dados são tratados e quais regras se aplicam ao uso dos nossos serviços.</p>
-    <ul>
-      <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
-      <li><a href="exclusao-de-dados.html">Instruções para Exclusão de Dados</a></li>
-      <li><a href="termos-de-servico.html">Termos de Serviço</a></li>
-    </ul>
-  </section>
-
-  <div class="notice">
-    Antes de publicar, substitua <strong>SUBSTITUA-PELO-EMAIL-OFICIAL</strong> pelo e-mail correto da empresa em todos os arquivos.
+    <aside class="finance-card">
+      <h3>Os 4 pilares da organização financeira</h3>
+      <div class="finance-row"><span>1. Conhecer a renda</span><strong>Quanto entra</strong></div>
+      <div class="finance-row"><span>2. Mapear os gastos</span><strong>Quanto sai</strong></div>
+      <div class="finance-row"><span>3. Definir prioridades</span><strong>O que vem primeiro</strong></div>
+      <div class="finance-row"><span>4. Criar uma reserva</span><strong>Proteção para imprevistos</strong></div>
+    </aside>
   </div>
+</section>
+
+<section id="aprender">
+  <div class="container">
+    <div class="section-head">
+      <h2>Aprenda a cuidar melhor do seu dinheiro</h2>
+      <p>Educação financeira não é sobre ganhar muito. É sobre entender escolhas, criar prioridades e usar melhor o que você já tem.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="icon">R$</div>
+        <h3>Organização do orçamento</h3>
+        <p>Aprenda a registrar entradas, despesas fixas, gastos variáveis e identificar para onde o dinheiro está indo.</p>
+      </article>
+      <article class="card">
+        <div class="icon">%</div>
+        <h3>Crédito consciente</h3>
+        <p>Entenda juros, parcelas, custo total, prazo e como comparar propostas antes de contratar.</p>
+      </article>
+      <article class="card">
+        <div class="icon">✓</div>
+        <h3>Planejamento financeiro</h3>
+        <p>Organize metas, crie uma reserva de emergência e prepare-se melhor para objetivos futuros.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="conteudos">
+  <div class="container">
+    <div class="section-head">
+      <h2>Conteúdos essenciais</h2>
+      <p>Comece pelos temas que mais impactam o dia a dia financeiro.</p>
+    </div>
+    <div class="lesson-grid">
+      <article class="lesson">
+        <small>Orçamento</small>
+        <h3>Como montar um controle financeiro simples</h3>
+        <ul>
+          <li>anote toda a renda mensal;</li>
+          <li>separe gastos fixos e variáveis;</li>
+          <li>identifique despesas que podem ser reduzidas;</li>
+          <li>defina um valor para guardar.</li>
+        </ul>
+      </article>
+
+      <article class="lesson">
+        <small>Dívidas</small>
+        <h3>Como priorizar o pagamento de dívidas</h3>
+        <ul>
+          <li>liste todas as dívidas;</li>
+          <li>compare juros e atraso;</li>
+          <li>priorize as mais caras;</li>
+          <li>negocie apenas parcelas que cabem no orçamento.</li>
+        </ul>
+      </article>
+
+      <article class="lesson">
+        <small>Crédito</small>
+        <h3>O que analisar antes de contratar</h3>
+        <ul>
+          <li>valor da parcela;</li>
+          <li>número de parcelas;</li>
+          <li>taxa de juros;</li>
+          <li>custo efetivo total;</li>
+          <li>impacto no orçamento mensal.</li>
+        </ul>
+      </article>
+
+      <article class="lesson">
+        <small>Segurança</small>
+        <h3>Cuidados contra golpes financeiros</h3>
+        <ul>
+          <li>nunca compartilhe senhas;</li>
+          <li>desconfie de urgência e promessa de dinheiro fácil;</li>
+          <li>confirme a identidade da empresa;</li>
+          <li>leia contratos antes de assinar.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="container">
+    <div class="section-head">
+      <h2>Comece em quatro passos</h2>
+      <p>Pequenas mudanças consistentes podem melhorar muito a relação com o dinheiro.</p>
+    </div>
+    <div class="card steps">
+      <div class="step">
+        <h3>Anote tudo durante 30 dias</h3>
+        <p>Registre cada entrada e gasto, inclusive pequenas compras.</p>
+      </div>
+      <div class="step">
+        <h3>Separe necessidade de desejo</h3>
+        <p>Entenda o que é essencial e o que pode ser adiado.</p>
+      </div>
+      <div class="step">
+        <h3>Defina uma meta possível</h3>
+        <p>Comece com um objetivo simples, como reduzir uma despesa ou guardar um pequeno valor.</p>
+      </div>
+      <div class="step">
+        <h3>Revise todos os meses</h3>
+        <p>Acompanhe o progresso e ajuste o plano quando necessário.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="band">
+      <h2>Informação financeira também é proteção</h2>
+      <p>Antes de contratar crédito, refinanciar uma dívida ou aceitar uma proposta, entenda todas as condições. Este site oferece conteúdo educacional e não substitui análise financeira individual ou orientação profissional.</p>
+      <div class="legal-links">
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="exclusao-de-dados.html">Exclusão de Dados</a>
+        <a href="termos-de-servico.html">Termos de Serviço</a>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-  <p>© 2026 Gentil Cred. Todos os direitos reservados.</p>
-  <p>Contato: <strong>SUBSTITUA-PELO-EMAIL-OFICIAL</strong></p>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <div class="logo">GC</div>
+          <strong style="color:white">Gentil Cred</strong>
+        </a>
+        <p class="small">Conteúdo de educação financeira para ajudar pessoas a organizar a vida, entender o crédito e tomar decisões mais conscientes.</p>
+      </div>
+      <div>
+        <h4>Conteúdos</h4>
+        <a href="index.html#aprender">Organização financeira</a>
+        <a href="index.html#conteudos">Crédito e dívidas</a>
+        <a href="index.html#metodo">Primeiros passos</a>
+      </div>
+      <div>
+        <h4>Informações legais</h4>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
+        <a href="exclusao-de-dados.html">Exclusão de Dados</a>
+        <a href="termos-de-servico.html">Termos de Serviço</a>
+      </div>
+    </div>
+    <hr style="border:0;border-top:1px solid rgba(255,255,255,.12);margin:28px 0">
+    <p class="small">© 2026 Gentil Cred. Conteúdo educacional. Contato: SUBSTITUA-PELO-EMAIL-OFICIAL</p>
+  </div>
 </footer>
 
 </body>

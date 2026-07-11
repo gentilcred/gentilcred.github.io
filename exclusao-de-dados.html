@@ -254,6 +254,23 @@ footer a{display:block;text-decoration:none;color:#d3e0e4;margin:8px 0}
   .hero{padding-top:56px}
 }
 </style>
+
+<style>
+html{scroll-behavior:smooth}body{overflow-x:hidden}
+header{transition:box-shadow .3s ease,background .3s ease}header.scrolled{box-shadow:0 10px 30px rgba(14,42,54,.10);background:rgba(255,255,255,.98)!important}
+.logo{transition:transform .3s ease}.brand:hover .logo{transform:rotate(-6deg) scale(1.06)}
+.navlinks a{position:relative}.navlinks a:after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:#2f8f83;transition:width .25s ease}.navlinks a:hover:after{width:100%}
+.btn,.card,.lesson,.finance-row,.icon{transition:transform .3s ease,box-shadow .3s ease,background .3s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(14,42,54,.12)}
+.card:hover,.lesson:hover{transform:translateY(-8px);box-shadow:0 18px 38px rgba(14,42,54,.12)}
+.card:hover .icon{transform:rotate(-6deg) scale(1.08)}
+.finance-card{animation:floatCard 5s ease-in-out infinite}.finance-row:hover{transform:translateX(6px);background:#f8fbfa}
+.hero{position:relative;overflow:hidden}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;opacity:.45;filter:blur(8px);animation:floatBlob 8s ease-in-out infinite}.hero:before{width:220px;height:220px;background:rgba(47,143,131,.14);left:-70px;top:80px}.hero:after{width:180px;height:180px;background:rgba(231,184,75,.18);right:4%;bottom:20px;animation-delay:-3s}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:translateY(0)}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes floatBlob{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-18px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 
@@ -333,5 +350,13 @@ footer a{display:block;text-decoration:none;color:#d3e0e4;margin:8px 0}
   </div>
 </footer>
 
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const h=document.querySelector('header'); const set=()=>{if(h)h.classList.toggle('scrolled',window.scrollY>20)}; set(); addEventListener('scroll',set);
+ const items=document.querySelectorAll('section,.card,.lesson,.finance-card,.legal-page'); items.forEach(x=>x.classList.add('reveal'));
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12}); items.forEach(x=>io.observe(x));
+});
+</script>
 </body>
 </html>

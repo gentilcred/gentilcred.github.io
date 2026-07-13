@@ -29,3 +29,46 @@ document.addEventListener("DOMContentLoaded",()=>{
     document.querySelector("#l-div").textContent=fmt.format(dividas);
   });
 });
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const slides=[...document.querySelectorAll(".campaign-slide")];
+  const dots=[...document.querySelectorAll(".campaign-dot")];
+  const prev=document.querySelector(".campaign-prev");
+  const next=document.querySelector(".campaign-next");
+  const pause=document.querySelector(".campaign-pause");
+  if(!slides.length) return;
+
+  let current=0;
+  let playing=true;
+  let timer;
+
+  const show=index=>{
+    slides[current]?.classList.remove("active");
+    dots[current]?.classList.remove("active");
+    slides[current]?.querySelector("video")?.pause();
+    current=(index+slides.length)%slides.length;
+    slides[current]?.classList.add("active");
+    dots[current]?.classList.add("active");
+    const video=slides[current]?.querySelector("video");
+    if(playing&&video){video.currentTime=0;video.play().catch(()=>{});}
+  };
+
+  const restart=()=>{
+    clearInterval(timer);
+    if(playing) timer=setInterval(()=>show(current+1),11000);
+  };
+
+  prev?.addEventListener("click",()=>{show(current-1);restart()});
+  next?.addEventListener("click",()=>{show(current+1);restart()});
+  dots.forEach(dot=>dot.addEventListener("click",()=>{show(Number(dot.dataset.target));restart()}));
+  pause?.addEventListener("click",()=>{
+    playing=!playing;
+    pause.textContent=playing?"Ⅱ":"▶";
+    pause.setAttribute("aria-label",playing?"Pausar apresentação":"Reproduzir apresentação");
+    const video=slides[current]?.querySelector("video");
+    if(playing){video?.play().catch(()=>{});restart()}else{clearInterval(timer);video?.pause()}
+  });
+  show(0);
+  restart();
+});

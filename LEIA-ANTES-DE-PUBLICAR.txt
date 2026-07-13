@@ -1,22 +1,7 @@
-SITE FINAL GENTIL CRED
+VERSÃO FINAL COM BANNER VISUAL ADICIONADO
 
-Este pacote já inclui:
-- vídeo de policiais;
-- vídeo de médicos;
-- vídeo de professores;
-- vídeo de prefeituras;
-- páginas legais;
-- calculadora;
-- páginas educativas;
-- WhatsApp: 5519996324788;
-- e-mail: administrativo@genticred.com.br.
+O banner foi acrescentado logo abaixo do menu.
+A seção existente com texto à esquerda e painel à direita foi mantida integralmente logo abaixo.
+Nenhuma seção do site foi removida.
 
-COMO PUBLICAR NO GITHUB
-1. Extraia este ZIP.
-2. No repositório gentilcred.github.io, clique em Add file > Upload files.
-3. Envie TODOS os arquivos desta pasta.
-4. Clique em Commit changes.
-5. Aguarde alguns minutos e atualize https://gentilcred.github.io/
-
-IMPORTANTE
-Os vídeos devem ser enviados junto com os demais arquivos, pois fazem parte do site.
+Envie todos os arquivos para a raiz do repositório gentilcred.github.io.

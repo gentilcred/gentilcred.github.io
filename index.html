@@ -16,7 +16,7 @@
     <nav class="navlinks">
       <a href="#solucoes">Soluções</a>
       <a href="#publico">Públicos</a>
-      <a href="#video">Vídeos</a>
+      
       <a href="#metodo">Método</a>
       <a href="#calculadora">Calculadora</a>
       <a href="#faq">Perguntas frequentes</a>
@@ -26,33 +26,60 @@
 </header>
 
 <main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="reveal">
-      <span class="eyebrow">Soluções financeiras com orientação e acolhimento</span>
-      <h1>Reorganize sua vida financeira com <span class="gradient">mais clareza e menos peso no orçamento.</span></h1>
-      <p>A Gentil Cred ajuda servidores públicos e profissionais conveniados com soluções para redução de parcelas, análise de juros do cartão de crédito, reorganização financeira e orientação para retomar o equilíbrio do orçamento.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://wa.me/5519996324788?text=Olá!%20Quero%20solicitar%20uma%20análise%20financeira." target="_blank" rel="noopener">Solicitar uma análise</a>
-        <a class="btn btn-light" href="#solucoes">Conhecer soluções</a>
-      </div>
-      <div class="hero-trust">
-        <span>✓ Atendimento humanizado</span>
-        <span>✓ Foco em reenquadramento financeiro</span>
-        <span>✓ Público público e conveniado</span>
-      </div>
+
+<section class="video-hero" aria-label="Destaques Gentil Cred">
+  <div class="video-slide active" data-slide="0">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="video-policia-1m39-1m51-sem-som.mp4" type="video/mp4">
+    </video>
+    <div class="video-hero-overlay"></div>
+    <div class="video-hero-content">
+      <span class="video-kicker">Profissionais da segurança</span>
+      <h1>Mais equilíbrio financeiro para quem protege todos os dias.</h1>
+      <p>Redução de parcelas, análise de compromissos e orientação para reenquadrar o orçamento.</p>
+      <a class="video-cta" href="https://wa.me/5519996324788?text=Olá!%20Sou%20profissional%20da%20segurança%20e%20quero%20solicitar%20uma%20análise%20financeira." target="_blank" rel="noopener">Solicitar análise</a>
     </div>
-    <aside class="hero-panel reveal">
-      <h3>Um caminho simples para voltar ao controle</h3>
-      <p>Entenda como funciona o nosso atendimento.</p>
-      <div class="step-row"><div class="step-num">1</div><div><strong>Você entra em contato</strong><span>Conte sua situação e suas principais dúvidas.</span></div></div>
-      <div class="step-row"><div class="step-num">2</div><div><strong>Fazemos uma análise inicial</strong><span>Avaliamos parcelas, juros e compromissos atuais.</span></div></div>
-      <div class="step-row"><div class="step-num">3</div><div><strong>Apresentamos possibilidades</strong><span>Explicamos com clareza as alternativas viáveis.</span></div></div>
-      <div class="step-row"><div class="step-num">4</div><div><strong>Acompanhamos o processo</strong><span>Você recebe orientação do início ao fim.</span></div></div>
-      <a class="panel-link" href="#video">Ver área de apresentação →</a>
-    </aside>
+  </div>
+
+  <div class="video-slide" data-slide="1">
+    <video muted loop playsinline preload="metadata">
+      <source src="video-medicos-sem-som.mp4" type="video/mp4">
+    </video>
+    <div class="video-hero-overlay"></div>
+    <div class="video-hero-content">
+      <span class="video-kicker">Médicos e profissionais da saúde</span>
+      <h1>Cuide também da sua saúde financeira.</h1>
+      <p>Soluções para reorganizar parcelas, juros e compromissos mensais com mais clareza.</p>
+      <a class="video-cta" href="https://wa.me/5519996324788?text=Olá!%20Sou%20profissional%20da%20saúde%20e%20quero%20solicitar%20uma%20análise%20financeira." target="_blank" rel="noopener">Conhecer soluções</a>
+    </div>
+  </div>
+
+  <div class="video-slide" data-slide="2">
+    <video muted loop playsinline preload="metadata">
+      <source src="video-professores-1m27-1m38-sem-som.mp4" type="video/mp4">
+    </video>
+    <div class="video-hero-overlay"></div>
+    <div class="video-hero-content">
+      <span class="video-kicker">Professores e profissionais da educação</span>
+      <h1>Mais tranquilidade para continuar transformando vidas.</h1>
+      <p>Orientação financeira, redução da pressão no orçamento e caminhos para reorganizar compromissos.</p>
+      <a class="video-cta" href="https://wa.me/5519996324788?text=Olá!%20Sou%20profissional%20da%20educação%20e%20quero%20solicitar%20uma%20análise%20financeira." target="_blank" rel="noopener">Quero uma análise</a>
+    </div>
+  </div>
+
+  <div class="video-hero-controls">
+    <button class="hero-control pause-control" type="button" aria-label="Pausar apresentação">Ⅱ</button>
+    <button class="hero-control prev-control" type="button" aria-label="Anterior">‹</button>
+    <button class="hero-control next-control" type="button" aria-label="Próximo">›</button>
+  </div>
+
+  <div class="video-hero-dots" aria-label="Selecionar destaque">
+    <button class="hero-dot active" type="button" data-target="0" aria-label="Policiais"></button>
+    <button class="hero-dot" type="button" data-target="1" aria-label="Médicos"></button>
+    <button class="hero-dot" type="button" data-target="2" aria-label="Professores"></button>
   </div>
 </section>
+
 
 <section id="solucoes">
   <div class="container">
@@ -89,69 +116,7 @@
 </section>
 
 
-<section id="video">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2>Vídeos dos públicos atendidos</h2>
-      <p>Agora o site conta com vídeos curtos e silenciosos para deixar a experiência mais dinâmica, mais humana e mais conectada ao público atendido pela Gentil Cred.</p>
-    </div>
 
-    <div class="media-showcase">
-      <article class="video-card feature-card reveal">
-        <figure>
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src="video-policia-1m39-1m51-sem-som.mp4" type="video/mp4">
-          </video>
-          <span class="video-tag">Policiais</span>
-        </figure>
-        <div class="video-copy">
-          <h3>Atendimento para profissionais da segurança</h3>
-          <p>A Gentil Cred oferece orientação para reorganização financeira, análise de parcelas e mais clareza para quem precisa aliviar o orçamento.</p>
-        </div>
-      </article>
-
-      <div class="media-grid-side">
-        <article class="video-card reveal">
-          <figure>
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="video-medicos-sem-som.mp4" type="video/mp4">
-            </video>
-            <span class="video-tag">Médicos</span>
-          </figure>
-          <div class="video-copy">
-            <h3>Profissionais da saúde</h3>
-            <p>Soluções para reenquadramento financeiro com foco em redução de pressão no orçamento e organização dos compromissos mensais.</p>
-          </div>
-        </article>
-
-        <article class="video-card reveal">
-          <figure>
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="video-professores-1m27-1m38-sem-som.mp4" type="video/mp4">
-            </video>
-            <span class="video-tag">Professores</span>
-          </figure>
-          <div class="video-copy">
-            <h3>Atendimento para profissionais da educação</h3>
-            <p>Conteúdos e orientação prática para ajudar no controle das finanças e na busca por mais equilíbrio no mês.</p>
-          </div>
-        </article>
-
-        <article class="media-info-card reveal">
-          <div class="mini-eyebrow">Também atendemos</div>
-          <h3>Servidores públicos, prefeituras e profissionais conveniados</h3>
-          <p>O site foi preparado para comunicar de forma clara o atendimento da Gentil Cred a diferentes categorias profissionais.</p>
-          <ul>
-            <li>reanálise do orçamento mensal;</li>
-            <li>orientação sobre juros e parcelas;</li>
-            <li>apoio para reenquadramento financeiro.</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/5519996324788?text=Olá!%20Quero%20solicitar%20uma%20análise%20financeira." target="_blank" rel="noopener">Solicitar análise</a>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <section id="metodo">

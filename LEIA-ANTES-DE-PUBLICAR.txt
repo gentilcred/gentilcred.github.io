@@ -1,2 +1,11 @@
-Substitua administrativo@genticred.com.br e 5519996324788 antes de publicar.
-Envie todos os arquivos para a raiz do repositório gentilcred.github.io.
+VERSÃO COM BANNER DE VÍDEO EM TELA LARGA
+
+O vídeo agora:
+- ocupa o banner principal do site;
+- tem texto e botão sobrepostos;
+- alterna entre policiais, médicos e professores;
+- não aparece como uma aba ou seção chamada "Vídeos";
+- possui botões anterior, próximo e pausar;
+- funciona sem som e em repetição.
+
+Envie todos os arquivos deste pacote para a raiz do GitHub.

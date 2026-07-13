@@ -1,0 +1,17 @@
+PACOTE COM VÍDEOS INTEGRADOS
+
+Este pacote já inclui:
+- video-policia-1m39-1m51-sem-som.mp4
+- video-medicos-sem-som.mp4
+- video-professores-1m27-1m38-sem-som.mp4
+
+Eles já estão conectados ao index.html.
+
+Como publicar:
+1. Extraia este ZIP.
+2. Envie TODOS os arquivos para o GitHub.
+3. Confirme em "Commit changes".
+
+Observação:
+- Os vídeos estão configurados para tocar sem som, em loop e automaticamente.
+- Se quiser trocar depois por outros vídeos, basta substituir os arquivos pelos mesmos nomes.

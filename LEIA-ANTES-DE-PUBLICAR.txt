@@ -1,11 +1,22 @@
-VERSÃO COM BANNER DE VÍDEO EM TELA LARGA
+SITE FINAL GENTIL CRED
 
-O vídeo agora:
-- ocupa o banner principal do site;
-- tem texto e botão sobrepostos;
-- alterna entre policiais, médicos e professores;
-- não aparece como uma aba ou seção chamada "Vídeos";
-- possui botões anterior, próximo e pausar;
-- funciona sem som e em repetição.
+Este pacote já inclui:
+- vídeo de policiais;
+- vídeo de médicos;
+- vídeo de professores;
+- vídeo de prefeituras;
+- páginas legais;
+- calculadora;
+- páginas educativas;
+- WhatsApp: 5519996324788;
+- e-mail: administrativo@genticred.com.br.
 
-Envie todos os arquivos deste pacote para a raiz do GitHub.
+COMO PUBLICAR NO GITHUB
+1. Extraia este ZIP.
+2. No repositório gentilcred.github.io, clique em Add file > Upload files.
+3. Envie TODOS os arquivos desta pasta.
+4. Clique em Commit changes.
+5. Aguarde alguns minutos e atualize https://gentilcred.github.io/
+
+IMPORTANTE
+Os vídeos devem ser enviados junto com os demais arquivos, pois fazem parte do site.

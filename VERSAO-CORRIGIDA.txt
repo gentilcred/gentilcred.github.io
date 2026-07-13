@@ -1,0 +1,1 @@
+VERSÃO CORRIGIDA: a seção "Vídeos dos públicos atendidos" foi removida. Após publicar, pressione Ctrl+F5 para limpar o cache.
